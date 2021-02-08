@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Vets</h2>
+
+<ul>
+  {% for vet in vets %}
+    <li>
+      <h1>{{ vet.name }}</h1>
+      <p>{{ vet.earnings }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
