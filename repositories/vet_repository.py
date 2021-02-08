@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.vet import Vet
 from models.pet import Pet
+from models.treatment import Treatment
 
 def save(vet):
     sql = "INSERT INTO vets (name), VALUES (%s) RETURNING *"
