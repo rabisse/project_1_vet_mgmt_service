@@ -49,7 +49,7 @@ def pets(vet):
     results = run_sql(sql, value)
     for row in results:
         pet = Pet(row['name'], row['species'], row['breed'], row['dob'], row['owner_id'], row['vet_id'], row['id'])
-        # is this the right way to put the owner into this? Can I still print out the owner name this way?
+        # is this the right way to put the owner into this? Can I still print out the owner name this way? same for the owners repo pet list
         pets.append(pet)
     return pets
 
