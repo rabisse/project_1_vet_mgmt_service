@@ -3,6 +3,8 @@ from db.run_sql import run_sql
 from models.pet import Pet
 from models.owner import Owner
 from models.vet import Vet
+from models.treatment import Treatment
+
 import repositories.owner_repository as owner_repository
 import repositories.vet_repository as vet_repository
 
@@ -47,6 +49,16 @@ def delete(id):
 
 def update(pet):
     sql = "UPDATE pets SET (name, species, breed, dob, owner_id, vet_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    value = [pet.name, pet.species, pet.breed, pet.dob, pet.owner.id, pet.vet.id, pet.id]
+    values = [pet.name, pet.species, pet.breed, pet.dob, pet.owner.id, pet.vet.id, pet.id]
     run_sql(sql, values)
+
+def treatments(pet):
+    treatments = []
+    sql = "SELECT * FROM treatments WHERE pet_id = %s"
+    value = [pet.id]
+    results = run_sql(sql, value)
+    for row in results:
+        treatment = Treatment(row['name'], row['cost'], row['note'], row['pet_id'], row['vet_id'], row['id'])
+        treatments.append(treatment)
+    return treatments
 

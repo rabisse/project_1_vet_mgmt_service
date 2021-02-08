@@ -49,7 +49,18 @@ def pets(vet):
     results = run_sql(sql, value)
     for row in results:
         pet = Pet(row['name'], row['species'], row['breed'], row['dob'], row['owner_id'], row['vet_id'], row['id'])
-        # is this the right way to put the owner into this? Can I still print out the owner name this way? same for the owners repo pet list
+        # is this the right way to put the owner into this with just the id instead of creating the whole object? would i just use the select method in the other repo to pull the rest of the data later? Can I still print out the owner name this way? same for the owners repo pet list
         pets.append(pet)
     return pets
 
+def treatments(vet):
+    treatments = []
+    sql = "SELECT * FROM treatments WHERE vet_id = %s"
+    value = [vet.id]
+    results = run_sql(sql, value)
+    for row in results:
+        treatment = Treatment(row['name'], row['cost'], row['note'], row['pet_id'], row['vet_id'], row['id'])
+        treatments.append(treatment)
+    return treatments
+
+    
