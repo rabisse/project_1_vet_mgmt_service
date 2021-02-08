@@ -3,7 +3,7 @@ from models.owner import Owner
 from models.pet import Pet
 
 def save(owner):
-    sql = "INSERT INTO owners (name, phone, email, bill), VALUES (%s, %s, %s, %s) RETURNING *"
+    sql = "INSERT INTO owners (name, phone, email, bill) VALUES (%s, %s, %s, %s) RETURNING *"
     values = [owner.name, owner.phone, owner.email, owner.bill]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -48,7 +48,7 @@ def pets(owner):
     value = [owner.id]
     results = run_sql(sql, value)
     for row in results:
-        pet = Pet(row['name'], row['species'], row['breed'], row['dob'], row['owner_id'], row['vet_id'], row['id'])
+        pet = Pet(row['name'], row['species'], row['dob'], row['owner_id'], row['vet_id'], row['id'])
         pets.append(pet)
     return pets
 

@@ -6,7 +6,7 @@ class TestVet(unittest.TestCase):
     def setUp(self):
         self.vet = Vet("Dr. Dolittle")
     
-    def test_vet_has_name(self):
+    def test_vet_name(self):
         self.assertEqual("Dr. Dolittle", self.vet.name)
 
     def test_vet_earnings(self):
