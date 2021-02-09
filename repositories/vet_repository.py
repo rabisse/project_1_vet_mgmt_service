@@ -43,10 +43,10 @@ def update(vet):
     values = [vet.name, vet.earnings, vet.id]
     run_sql(sql, values)
 
-def pets(vet):
+def pets(id):
     pets = []
     sql = "SELECT * FROM pets WHERE vet_id = %s"
-    value = [vet.id]
+    value = [id]
     results = run_sql(sql, value)
     for row in results:
         pet = Pet(row['name'], row['species'], row['dob'], row['owner_id'], row['vet_id'], row['id'])

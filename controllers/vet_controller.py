@@ -8,8 +8,11 @@ vets_blueprint = Blueprint("vets", __name__)
 @vets_blueprint.route("/vets")
 def vets():
     vets = vet_repository.select_all()
-    
-    return render_template("vets/index.html", vets = vets)
+    all_pets = []
+    for vet in vets:
+        found_pet = vet_repository.pets(vet.id)
+        all_pets.append(found_pet)
+    return render_template("vets/index.html", vets = vets, all_pets=all_pets)
 
 # how do i list the pets registered to each vet?
 
@@ -19,14 +22,7 @@ def new_vet():
     vet_repository.save(new_vet)
     return redirect("/vets")
 
-
-# @visits_blueprint.route("/visits",  methods=['POST'])
-# def create_task():
-#     user_id = request.form['user_id']
-#     location_id = request.form['location_id']
-#     review = request.form['review']
-#     user = user_repository.select(user_id)
-#     location = location_repository.select(location_id)
-#     visit = Visit(user, location, review)
-#     visit_repository.save(visit)
-#     return redirect('/visits')
+@vets_blueprint.route("/vets/<id>/delete", methods=["POST"])
+def delete_vet(id):
+    vet_repository.delete(id)
+    return redirect("/vets")

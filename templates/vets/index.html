@@ -8,7 +8,21 @@
   {% for vet in vets %}
     <li>
       <h2>{{ vet.name }}</h2>
-      <p>{{ vet.earnings }}</p>
+      <p>Total earnings: £{{ vet.earnings }}</p>
+      <p>
+        {% for pets in all_pets %}
+          {% for pet in pets %}
+            {% if pet.vet == vet.id %}
+              {{pet.name}}
+            {% endif %}   
+          {% endfor %}
+        {% endfor %}
+      </p>
+      <p>
+        <form action="/vets/{{ vet.id }}/delete" method="POST">
+          <input type="submit" value="Remove vet from roster" />
+        </form>
+      </p>
     </li>
   {% endfor %}
 </ul>

@@ -28,13 +28,23 @@
     </tr>
 </table>
 
+<p>
+    <form action="/pets/{{ pet.id }}/delete" method="POST">
+        <input type="submit" value="Remove pet from system" />
+    </form>
+</p>
+
+<p><a href="/treatments/new/{{ pet.id }}">New treatment</a></p>
+
 <h3>Treatments:</h3>
 <ul>
     {% for treatment in treatments %}
-        <li class="treatment-name">{{ treatment.name }}</li>
-        <li>Cost: £{{ treatment.cost }}</li>
-        <li>Performed by: {{ treatment.vet.name }}</li>
-        <li>Note: {{ treatment.note }}</li>
+        <section>
+            <li class="treatment-name">{{ treatment.name }}</li>
+            <li>Cost: £{{ treatment.cost }}</li>
+            <li>Performed by: {{ treatment.vet.name }}</li>
+            <li>Note: {{ treatment.note }}</li>
+        </section><br><br>
     {% endfor %}
 </ul>
 

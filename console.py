@@ -39,6 +39,8 @@ treatment_repository.save(treatment1)
 treatment2 = Treatment('Oil change', 20,'Definitely the droid I was looking for', pet2, vet2)
 treatment_repository.save(treatment2)
 
+treatment3 = Treatment('Give haircut', 80, 'Jerry had a whale of a time', pet1, vet2)
+treatment_repository.save(treatment3)
 
 
 pdb.set_trace()
