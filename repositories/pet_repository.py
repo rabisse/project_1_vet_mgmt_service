@@ -21,7 +21,7 @@ def select_all():
     sql = "SELECT * FROM pets"
     results = run_sql(sql)
     for row in results:
-        owner = owner_repository.select(row['user_id'])
+        owner = owner_repository.select(row['owner_id'])
         vet = vet_repository.select(row['vet_id'])
         pet = Pet(row['name'], row['species'], row['dob'], owner, vet, row['id'])
         pets.append(pet)
@@ -33,7 +33,7 @@ def select(id):
     value = [id]
     result = run_sql(sql, value)[0]
     if result is not None:
-        owner = owner_repository.select(result['user_id'])
+        owner = owner_repository.select(result['owner_id'])
         vet = vet_repository.select(result['vet_id'])
         pet = Pet(result['name'], result['species'], result['dob'], owner, vet, result['id'])
     return pet
@@ -58,7 +58,7 @@ def treatments(pet):
     value = [pet.id]
     results = run_sql(sql, value)
     for row in results:
-        treatment = Treatment(row['name'], row['cost'], row['note'], row['pet_id'], row['vet_id'], row['id'])
+        treatment = Treatment(row['name'], row['cost'], row['note'], row['pet_id'], vet_repository.select(row['vet_id']), row['id'])
         treatments.append(treatment)
     return treatments
 

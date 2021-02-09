@@ -3,3 +3,4 @@ class Vet:
         self.name = name
         self.earnings = earnings
         self.id = id
+        self.pets = []

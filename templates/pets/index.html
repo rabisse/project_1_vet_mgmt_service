@@ -2,6 +2,24 @@
 
 {% block content %}
     
+<h1>Pets</h1>
+
+<ul>
+  {% for pet in pets %}
+    <li>
+      <h2><a href="/pets/{{ pet.id }}">{{ pet.name }}</a></h2>
+      <p>{{ pet.species }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+
+<!-- 
+<form action="/pets" method="POST">
+    <label for='name'>To add a new vet, please enter name below and click 'Add':</label><br>
+    <input type="text" id="name" name="name"><br><br>
+    <input type="submit" value="Add">
+</form> -->
 
 
 

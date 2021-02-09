@@ -2,15 +2,21 @@
 
 {% block content %}
 
-<h2>Vets</h2>
+<h1>Vets</h1>
 
 <ul>
   {% for vet in vets %}
     <li>
-      <h1>{{ vet.name }}</h1>
+      <h2>{{ vet.name }}</h2>
       <p>{{ vet.earnings }}</p>
     </li>
   {% endfor %}
 </ul>
+
+<form action="/vets" method="POST">
+    <label for='name'>To add a new vet, please enter name below and click 'Add':</label><br>
+    <input type="text" id="name" name="name"><br><br>
+    <input type="submit" value="Add">
+</form>
 
 {% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ pet.name }}</h1>
+
+<table>
+
+    <tr>
+        <td>Species:</td>
+        <td>|</td>
+        <td>{{ pet.species }}</td>
+    </tr>
+    <tr>
+        <td>Date of birth:</td>
+        <td>|</td>
+        <td>{{ pet.dob }}</td>
+    </tr>
+    <tr>
+        <td>Owner:</td>
+        <td>|</td>
+        <td>{{ pet.owner.name }}</td>
+    </tr>
+    <tr>
+        <td>Assigned Vet:</td>
+        <td>|</td>
+        <td>{{ pet.vet.name }}</td>
+    </tr>
+</table>
+
+<h3>Treatments:</h3>
+<ul>
+    {% for treatment in treatments %}
+        <li class="treatment-name">{{ treatment.name }}</li>
+        <li>Cost: £{{ treatment.cost }}</li>
+        <li>Performed by: {{ treatment.vet.name }}</li>
+        <li>Note: {{ treatment.note }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}
