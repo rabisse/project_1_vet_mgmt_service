@@ -14,7 +14,6 @@ def vets():
         all_pets.append(found_pet)
     return render_template("vets/index.html", vets = vets, all_pets=all_pets)
 
-# how do i list the pets registered to each vet?
 
 @vets_blueprint.route("/vets", methods=["POST"])
 def new_vet():

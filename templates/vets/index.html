@@ -13,7 +13,7 @@
         {% for pets in all_pets %}
           {% for pet in pets %}
             {% if pet.vet == vet.id %}
-              {{pet.name}}
+              <a href="/pets/{{pet.id}}">{{ pet.name }}</a>
             {% endif %}   
           {% endfor %}
         {% endfor %}
