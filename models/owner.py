@@ -4,5 +4,4 @@ class Owner:
         self.phone = phone
         self.email = email
         self.bill = bill
-        self.pet_list = []
         self.id = id
