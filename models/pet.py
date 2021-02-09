@@ -6,4 +6,3 @@ class Pet:
         self.owner = owner
         self.vet = vet
         self.id = id
-        self.treatments = []

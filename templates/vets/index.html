@@ -9,11 +9,12 @@
     <li>
       <h2>{{ vet.name }}</h2>
       <p>Total earnings: £{{ vet.earnings }}</p>
+      <p>Assigned pets:</p>
       <p>
         {% for pets in all_pets %}
           {% for pet in pets %}
             {% if pet.vet == vet.id %}
-              <a href="/pets/{{pet.id}}">{{ pet.name }}</a>
+              <p><a href="/pets/{{pet.id}}">{{ pet.name }}</a></p>
             {% endif %}   
           {% endfor %}
         {% endfor %}
@@ -28,7 +29,7 @@
 </ul>
 
 <form action="/vets" method="POST">
-    <label for='name'>To add a new vet, please enter name below and click 'Add':</label><br>
+    <label for="name">To add a new vet, please enter name below and click 'Add':</label><br><br>
     <input type="text" id="name" name="name"><br><br>
     <input type="submit" value="Add">
 </form>
