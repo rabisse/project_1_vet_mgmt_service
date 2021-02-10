@@ -9,15 +9,16 @@
     <li>
       <h2>{{ vet.name }}</h2>
       <p>Total earnings: £{{ vet.earnings }}</p>
-      <p>Assigned pets:</p>
-      <p>
+      <p>Assigned pets:
+        <span>
         {% for pets in all_pets %}
           {% for pet in pets %}
             {% if pet.vet == vet.id %}
-              <p><a href="/pets/{{pet.id}}">{{ pet.name }}</a></p>
+              <a href="/pets/{{pet.id}}"> {{ pet.name }} </a>
             {% endif %}   
           {% endfor %}
         {% endfor %}
+      </span>
       </p>
       <p>
         <form action="/vets/{{ vet.id }}/delete" method="POST">

@@ -4,16 +4,17 @@
     
 <h1>New Treatment for <span>{{ pet.name }} the {{ pet.species }}</span>:</h1>
 
-<!-- might need to change the action link -->
-
 <form action="/treatments/new" method="POST">
     <input type="hidden" id="pet_id" name="pet_id" value="{{ pet.id }}">
+    
     <label for="name">Name of treatment:</label>
     <input type="text" id="name" name="name">
     <br><br>
+
     <label for="cost">Cost: £</label>
     <input type="text" id="cost" name="cost">
     <br><br>
+
     <label for="vet">Performed by:</label>
     <select name="vet_id" id="vet">
         {% for vet in vets %}
@@ -21,9 +22,11 @@
         {% endfor %}
     </select>
     <br><br>
+
     <label for="note">Notes:</label>
     <textarea name="note" id="note" cols="30" rows="2"></textarea>
     <br><br>
+
     <input type="submit" value="Add treatment">
 </form>
 

@@ -1,0 +1,68 @@
+/* font-family: 'Quicksand', sans-serif; */
+
+/* font-family: 'Hammersmith One', sans-serif; */
+
+
+body {
+    background-color: rgb(39, 99, 39);
+    font-family: 'Quicksand', sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    padding: 35px;
+    color: rgb(211, 211, 211);
+}
+
+h1 {
+    font-style: italic;
+}
+
+
+
+
+a {
+    color: rgb(235, 235, 235);
+}
+
+a:hover {
+    color: yellow;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body main nav {
+    background-color: rgb(76, 87, 243);
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: 200px 40px 40px 40px;
+    grid-gap: 15px;
+
+}
+
+#homepage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+
+}
+
+#owners-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* #new_owner {
+    text-align: right;
+} */
+
+#codecats-title {
+    font-style: italic;
+    font-size: 250%;
+}
