@@ -17,3 +17,7 @@ class TestOwner(unittest.TestCase):
 
     def test_owner_bill(self):
         self.assertEqual(0, self.owner.bill)
+
+    def test_increase_bill(self):
+        self.owner.add_to_bill(100)
+        self.assertEqual(100, self.owner.bill)

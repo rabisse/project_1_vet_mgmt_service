@@ -3,3 +3,7 @@ class Vet:
         self.name = name
         self.earnings = earnings
         self.id = id
+
+    def add_to_earnings(self, amount):
+        self.earnings += amount
+        return

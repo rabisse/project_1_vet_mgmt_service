@@ -58,9 +58,6 @@ body main nav {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* #new_owner {
-    text-align: right;
-} */
 
 #codecats-title {
     font-style: italic;

@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.treatment import Treatment
+from models.owner import Owner
+from models.vet import Vet
 import repositories.treatment_repository as treatment_repository
 import repositories.pet_repository as pet_repository
 import repositories.vet_repository as vet_repository
+import repositories.owner_repository as owner_repository
 
 treatments_blueprint = Blueprint("treatments", __name__)
 
@@ -25,5 +28,12 @@ def create_treatment():
     vet = vet_repository.select(vet_id)
     treatment = Treatment(name, cost, note, pet, vet)
     treatment_repository.save(treatment)
+    
+    vet.add_to_earnings(int(treatment.cost))
+    vet_repository.update(vet)
+
+    owner = owner_repository.select(pet.owner.id)
+    owner.add_to_bill(int(treatment.cost))
+    owner_repository.update(owner)
     return redirect("/pets")
 

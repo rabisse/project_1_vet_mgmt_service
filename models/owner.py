@@ -5,3 +5,7 @@ class Owner:
         self.email = email
         self.bill = bill
         self.id = id
+
+    def add_to_bill(self, amount):
+        self.bill += amount
+        return
