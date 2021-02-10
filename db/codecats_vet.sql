@@ -32,6 +32,6 @@ CREATE TABLE treatments (
     cost INT,
     note TEXT,
     pet_id INT REFERENCES pets(id) ON DELETE CASCADE,
-    vet_id INT REFERENCES vets(id)
+    vet_id INT REFERENCES vets(id) ON DELETE CASCADE
 );
 
