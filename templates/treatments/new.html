@@ -7,8 +7,7 @@
 <!-- might need to change the action link -->
 
 <form action="/treatments/new" method="POST">
-    <input type="text" name="pet_id" id="pet_id" value="{{ pet.id }}">
-    <br><br>
+    <input type="hidden" id="pet_id" name="pet_id" value="{{ pet.id }}">
     <label for="name">Name of treatment:</label>
     <input type="text" id="name" name="name">
     <br><br>
